@@ -1,6 +1,6 @@
-package Device::PCA9685::PWMGenerator;
+package Device::PWMGenerator::PCA9685;
 
-# PODNAME: Device::PCA9685::PWMGenerator
+# PODNAME: Device::PWMGenerator::PCA9685
 # ABSTRACT: I2C interface to PWM Generator on PCA9685 using Device::SMBus
 # COPYRIGHT
 # VERSION

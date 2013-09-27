@@ -4,9 +4,9 @@ use warnings;
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
 
-use Device::PCA9685::PWMGenerator;
+use Device::PWMGenerator::PCA9685;
 
-my $dev = Device::PCA9685::PWMGenerator->new(
+my $dev = Device::PWMGenerator::PCA9685->new(
     I2CBusDevicePath => '/dev/i2c-1',
     debug            => 1,
     frequency        => 400,
