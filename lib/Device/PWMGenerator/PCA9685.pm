@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 package Device::PWMGenerator::PCA9685;
 
 # PODNAME: Device::PWMGenerator::PCA9685
@@ -14,6 +16,28 @@ use Time::HiRes qw(usleep);
 
 extends 'Device::SMBus';
 
+=register MODE1
+
+=register SUBADR1
+
+=register SUBADR2
+
+=register SUBADR3
+
+=register PRESCALE
+
+=register LED0_ON_L
+
+=register LED0_ON_H
+
+=register LED0_OFF_L
+
+=register LED0_OFF_H
+
+=register LED0_OFF_H
+
+=cut
+
 use constant {
   MODE1              => 0x00,
 
@@ -27,16 +51,11 @@ use constant {
   LED0_ON_H          => 0x07,
   LED0_OFF_L         => 0x08,
   LED0_OFF_H         => 0x09,
-
-  ALLLED_ON_L        => 0xFA,
-  ALLLED_ON_H        => 0xFB,
-  ALLLED_OFF_L       => 0xFC,
-  ALLLED_OFF_H       => 0xFD,
 };
 
 =attr I2CDeviceAddress
 
-Containd the I2CDevice Address for the bus on which your PWM Generator is connected. It would look like 0x40. Default value is 0x40, If you have not set any of the six jumpers on the PCA9685, this should be the correct address and you will not have to modify this value in most cases.
+Contains the I2CDevice Address for the bus on which your PWM Generator is connected. It would look like 0x40. Default value is 0x40, If you have not set any of the six jumpers on the PCA9685, this should be the correct address and you will not have to modify this value in most cases.
 
 =cut
 
@@ -59,7 +78,7 @@ has frequency => (
 
 has debug => (
     is      => 'ro',
-    default => 1,
+    default => 0,
 );
 
 sub _frequencySet {
@@ -98,9 +117,9 @@ sub enable {
     $self->writeByteData( MODE1,0b00000000 );
 }
 
-=method setPWM
+=method setChannelPWM
 
-    $self->setPWM($channel,$pulseOnPoint,$pulseOffPoint)
+    $self->setChannelPWM($channel,$pulseOnPoint,$pulseOffPoint)
     The PCA9685 offers a 12 bit resolution which means across a duty cycle you may set and unset the PWM at 4096 different point. 
     Range of values for $pulseOnPoint and $pulseOffPoint is 0 to 4095
     Range of values of $channel is 0 to 15

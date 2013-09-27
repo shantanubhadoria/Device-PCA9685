@@ -1,0 +1,91 @@
+=pod
+
+=head1 NAME
+
+Device::PWMGenerator::PCA9685 - I2C interface to PWM Generator on PCA9685 using Device::SMBus
+
+=head1 VERSION
+
+version 0.001
+
+=head1 REGISTERS
+
+=head2 MODE1
+
+=head2 SUBADR1
+
+=head2 SUBADR2
+
+=head2 SUBADR3
+
+=head2 PRESCALE
+
+=head2 LED0_ON_L
+
+=head2 LED0_ON_H
+
+=head2 LED0_OFF_L
+
+=head2 LED0_OFF_H
+
+=head2 LED0_OFF_H
+
+=head1 ATTRIBUTES
+
+=head2 I2CDeviceAddress
+
+Contains the I2CDevice Address for the bus on which your PWM Generator is connected. It would look like 0x40. Default value is 0x40, If you have not set any of the six jumpers on the PCA9685, this should be the correct address and you will not have to modify this value in most cases.
+
+=head2 Frequency
+
+Frequency of the PWM Pulse in Hz
+
+=head1 METHODS
+
+=head2 enable
+
+    $self->enable()
+
+This function is just a placeholder. It is not required to call this function for this particular chipset
+
+=head2 setChannelPWM
+
+    $self->setChannelPWM($channel,$pulseOnPoint,$pulseOffPoint)
+    The PCA9685 offers a 12 bit resolution which means across a duty cycle you may set and unset the PWM at 4096 different point. 
+    Range of values for $pulseOnPoint and $pulseOffPoint is 0 to 4095
+    Range of values of $channel is 0 to 15
+
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
+
+=head1 SUPPORT
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through github at 
+L<https://github.com/shantanubhadoria/device-pca9685/issues>.
+You will be notified automatically of any progress on your issue.
+
+=head2 Source Code
+
+This is open source software.  The code repository is available for
+public review and contribution under the terms of the license.
+
+L<https://github.com/shantanubhadoria/device-pca9685>
+
+  git clone git://github.com/shantanubhadoria/device-pca9685.git
+
+=head1 AUTHOR
+
+Shantanu Bhadoria <shantanu at cpan dott org>
+
+=head1 CONTRIBUTOR
+
+Shantanu Bhadoria <shantanu@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Shantanu Bhadoria.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
