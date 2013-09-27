@@ -2,58 +2,28 @@
 
 =head1 NAME
 
-Device::PWMGenerator::PCA9685 - I2C interface to PWM Generator on PCA9685 using Device::SMBus
+Device::PCA9685 - I2C interface to PCA9685 16 channel 12 bit PWM Generator
 
 =head1 VERSION
 
 version 0.001
 
-=head1 REGISTERS
-
-=head2 MODE1
-
-=head2 SUBADR1
-
-=head2 SUBADR2
-
-=head2 SUBADR3
-
-=head2 PRESCALE
-
-=head2 LED0_ON_L
-
-=head2 LED0_ON_H
-
-=head2 LED0_OFF_L
-
-=head2 LED0_OFF_H
-
-=head2 LED0_OFF_H
-
 =head1 ATTRIBUTES
 
-=head2 I2CDeviceAddress
+=head2 I2CBusDevicePath
 
-Contains the I2CDevice Address for the bus on which your PWM Generator is connected. It would look like 0x40. Default value is 0x40, If you have not set any of the six jumpers on the PCA9685, this should be the correct address and you will not have to modify this value in most cases.
+this is the device file path for your I2CBus that the PCA9685 is connected on e.g. /dev/i2c-1
+This must be provided during object creation.
 
-=head2 Frequency
+=head2 PWMGenerator 
 
-Frequency of the PWM Pulse in Hz
-
-=head1 METHODS
-
-=head2 enable
-
-    $self->enable()
-
-This function is just a placeholder. It is not required to call this function for this particular chipset
-
-=head2 setChannelPWM
-
-    $self->setChannelPWM($channel,$pulseOnPoint,$pulseOffPoint)
+    $self->PWMGenerator->enable();
+    $self->PWMGenerator->setChannelPWM($channel,$pulseOnPoint,$pulseOffPoint);
     The PCA9685 offers a 12 bit resolution which means across a duty cycle you may set and unset the PWM at 4096 different point. 
     Range of values for $pulseOnPoint and $pulseOffPoint is 0 to 4095
     Range of values of $channel is 0 to 15
+
+This is a object of L<Device::PWMGenerator::PCA9685>
 
 =for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
@@ -78,9 +48,19 @@ L<https://github.com/shantanubhadoria/device-pca9685>
 
 Shantanu Bhadoria <shantanu at cpan dott org>
 
-=head1 CONTRIBUTOR
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
+
+Shantanu <shantanu@cpan.org>
+
+=item *
 
 Shantanu Bhadoria <shantanu@cpan.org>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
