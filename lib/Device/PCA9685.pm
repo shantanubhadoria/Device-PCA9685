@@ -29,9 +29,10 @@ has 'I2CBusDevicePath' => (
 
     $self->PWMGenerator->enable();
     $self->PWMGenerator->setChannelPWM($channel,$pulseOnPoint,$pulseOffPoint);
-    The PCA9685 offers a 12 bit resolution which means across a duty cycle you may set and unset the PWM at 4096 different point. 
-    Range of values for $pulseOnPoint and $pulseOffPoint is 0 to 4095
-    Range of values of $channel is 0 to 15
+
+The PCA9685 offers a 12 bit resolution which means across a duty cycle you may set and unset the PWM at 4096 different point. 
+Range of values for $pulseOnPoint and $pulseOffPoint is 0 to 4095
+Range of values of $channel is 0 to 15
 
 This is a object of L<Device::PWMGenerator::PCA9685>
 
@@ -54,3 +55,29 @@ sub _build_PWMGenerator {
 }
 
 1;
+
+__END__
+
+=begin wikidoc
+
+= SYNOPSIS
+
+    use Device::PWMGenerator::PCA9685;
+
+    my $dev = Device::PWMGenerator::PCA9685->new(
+        I2CBusDevicePath => '/dev/i2c-1', # this would be '//dev/i2c-dev-0 for Model A Pi
+        debug            => 1,
+        frequency        => 400, #Hz
+    );
+    $dev->enable();
+    $dev->setChannelPWM(4,0,$dutycycle); # Duty cycle values between 0 and 4096 channel 4
+
+= DESCRIPTION
+
+This module provides a Object oriented interface to Adafruit 16 channel 12 bit
+PWM Generator(PCA9685). Befor you use thi module make sure you follow install
+Prerequisites for [Device::SMBus]
+
+=end wikidoc
+
+=cut
