@@ -75,7 +75,7 @@ __END__
 = DESCRIPTION
 
 This module provides a Object oriented interface to Adafruit 16 channel 12 bit
-PWM Generator(PCA9685). Befor you use thi module make sure you follow install
+PWM Generator(PCA9685). Before you use this module make sure you follow install
 Prerequisites for [Device::SMBus]
 
 =end wikidoc
