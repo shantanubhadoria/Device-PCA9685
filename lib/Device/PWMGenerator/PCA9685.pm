@@ -9,11 +9,11 @@ package Device::PWMGenerator::PCA9685;
 
 # Dependencies
 use 5.010;
-use Moose;
 use POSIX;
 
 use Time::HiRes qw(usleep);
 
+use Moose;
 extends 'Device::SMBus';
 
 =register MODE1
