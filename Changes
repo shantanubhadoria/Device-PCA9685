@@ -1,7 +1,7 @@
 Changelog for Device-PCA9685
 
-0.004 2016-04-07T06:01:49
- - No changes found
+0.004 2016-04-07T06:11:05
+ - Added travis (Shantanu Bhadoria)
 
 0.003 2015-03-25T07:33:12
  - v0.003 (Shantanu Bhadoria)
