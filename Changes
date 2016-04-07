@@ -1,6 +1,10 @@
 Changelog for Device-PCA9685
 
-0.003 2015-03-25T07:32:40
+0.004 2016-04-07T06:01:49
+ - No changes found
+
+0.003 2015-03-25T07:33:12
+ - v0.003 (Shantanu Bhadoria)
  - fixed extends (Shantanu Bhadoria)
 
 0.002 2013-12-15T02:37:02
@@ -14,4 +18,3 @@ Changelog for Device-PCA9685
  - Refactoring Submodule to allow easy loading of similar subdevices as
    plugins using a common prefix in MOP (Shantanu Bhadoria)
  - First Commit (Shantanu Bhadoria)
-
